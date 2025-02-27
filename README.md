@@ -15,7 +15,7 @@ Dette projekt visualiserer grupperne i en fodboldturnering med animationer, flag
 /Country.pde # Klasse til håndtering af lande og flag
 /Balloon.pde # Klasse til håndtering af balloner
 /Football.pde # Klasse til animation af bolden
-/Group.pde # Klasse til gruppeoplevelsen
+/Group.pde # Klasse til at lave grupper og gruppenavne
 /WelcomeScreen.pde # Klasse til at vise velkomstskærm
 ```
 
