@@ -3,10 +3,10 @@
 Dette projekt visualiserer grupperne i en fodboldturnering med animationer, flag og interaktive elementer i **Processing**.
 
 ## 📌 Funktioner
--En velkomstskærm med festlige balloner🎈
--Tryk **ENTER** for at se grupperne
--Viser **grupper A-D** med landes flag og navne
--En fodbold bevæger sig i canvas
+- En velkomstskærm med festlige balloner🎈
+- Tryk **ENTER** for at se grupperne
+- Viser **grupper A-D** med landes flag og navne
+- En fodbold bevæger sig i canvas
 
 ```
 ## 📂 Filstruktur
