@@ -9,9 +9,11 @@ class Football {
     group = g;
     football = loadImage("soccer-ball-png-26391.png");
     size = 20;
+
     //Speed of football
     xSpeed = 4;
     ySpeed = 4;
+
     //Start position direction of ball
     direction = 0;
     counter = 0;
@@ -23,10 +25,16 @@ class Football {
   }
 
   void move() {
-    //Get variables from Group class
+
+    //Get variable from Group class
     float centerX = group.centerX;
-    
-    //Move ball with switch case
+
+
+    //Move ball around canvas with switch case:
+    //case 0: move down
+    //case 1: move right
+    //case 2: move up
+    //case 3: move left
     switch(direction) {
 
     case 0: //Move down
@@ -38,9 +46,10 @@ class Football {
 
     case 1: //Move right
       x += xSpeed;
+
       //Every second time the ball goes up in the middle of the screen
       if (counter % 2 == 0) {
-        if (x > centerX - 14) {
+        if (x > centerX - 10) {
           direction = 2;
         }
       } else {

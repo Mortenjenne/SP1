@@ -3,10 +3,10 @@ class Balloon {
   float x, y, size;
   color c;
 
-  Balloon(float tempX, float tempY, float tempSize, float r, float g, float b) {
-    x = tempX;
-    y = tempY;
-    size = tempSize;
+  Balloon(float x, float y, float size, float r, float g, float b) {
+    this.x = x;
+    this.y = y;
+    this.size = size;
     c = color(r, g, b);
   }
   
@@ -23,5 +23,8 @@ class Balloon {
     fill(c);
     noStroke();
     ellipse(x,y,size,size);
+    
+    //Call method to get balloons to rise
+    balloonRise();
 }
 }
