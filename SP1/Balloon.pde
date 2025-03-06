@@ -10,7 +10,8 @@ class Balloon {
     this.size = size;
     c = color(r, g, b);
   }
-
+  
+  //Method to make balloons rise
   void balloonRise() {
     //Balloon ascend
     y -= getBalloonSpeed(1, 2); // Balloons assend with different speeds

@@ -16,10 +16,10 @@ class Country {
 
   Country(Group g) {
     group = g;
-    yText = 15;
-    textMargin = 100;
-    nextGroup = 40;
-    float rectH = group.getRectH();
+    yText = 15; // y-position for the starting point of the country names on the screen
+    textMargin = 100; // x-offset for the position where country names begin
+    nextGroup = 40; // y-offset for the vertical spacing between groups B and D
+    float rectH = group.getRectH(); // Get the height of the rectangles from the Group class, to resize flags
 
     //Loads the 16 different country flags with loadImage()
     for (int i = 0; i < flagNames.length; i++) {
