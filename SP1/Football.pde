@@ -1,20 +1,21 @@
 class Football {
-  float x, y, xSpeed, ySpeed, size;
-  int counter;
-  PImage football;
-  int direction;
-  Group group;
+  
+  private float x, y, xSpeed, ySpeed, size;
+  private int counter;
+  private PImage football;
+  private int direction;
+  private Group group;
 
-  Football(Group g) {
+  Football(Group g, float size) {
     group = g;
     football = loadImage("soccer-ball-png-26391.png");
-    size = 20;
+    this.size = size;
 
     //Speed of football
     xSpeed = 4;
     ySpeed = 4;
 
-    //Start position direction of ball
+    //Start position and direction of ball
     direction = 0;
     counter = 0;
   }
@@ -27,14 +28,10 @@ class Football {
   void move() {
 
     //Get variable from Group class
-    float centerX = group.centerX;
-
+    float centerX = group.getCenterX();
+    float centerY = group.getCenterY();
 
     //Move ball around canvas with switch case:
-    //case 0: move down
-    //case 1: move right
-    //case 2: move up
-    //case 3: move left
     switch(direction) {
 
     case 0: //Move down
@@ -61,8 +58,15 @@ class Football {
 
     case 2: //Move up
       y -= ySpeed;
-      if (y < 2) {
-        direction = 3;
+      //Every second time the ball goes left in the middle of the screen, other wise all the way to the top
+      if (counter % 2 == 0) {
+        if (y < 2) {
+          direction = 3;
+        }
+      } else {
+        if (y < centerY - 10) {
+          direction = 3;
+        }
       }
       break;
 

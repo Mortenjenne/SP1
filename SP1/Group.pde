@@ -1,35 +1,32 @@
 class Group {
-  float x, y, rectH, rectW, t, yGroup;
-  float centerX, centerY, groupHeight;
-  float spacing,centerXOffset, sizeAdjustment, shadowLength, shadowSpacing, colorBoxWidth;
-  color yellow, lightBlue;
+  private float x, y, rectH, rectW, yGroup;
+  private float centerX, centerY, groupHeight;
+  private float spacing, centerXOffset, sizeAdjustment, shadowLength, shadowSpacing, colorBoxWidth;
+  private color yellow, lightBlue;
 
   Group() {
     x = 10;
     y = 10;
-    rectH = 37;
-    rectW = width/2-30;
-    yGroup = 42;
+    rectH = 37;//Height of white rects, flags, colored small rects
+    rectW = width/2-30;//Width of white rects
+    yGroup = 42; //Position to start white rect
     sizeAdjustment = 20;
     centerXOffset = 10;
-    spacing = 45;
+    spacing = 45; //Spacing between each group
     colorBoxWidth = 10;
-    shadowLength = 16;
+    shadowLength = 16;//Lenght of shadow
     shadowSpacing = 70;
     groupHeight = 180;
-    
-    
-    // Find middle of width and height on blue rect
-    centerX = width/2;
-    centerY = height/2;
-    
+    centerX = width/2; //Middle of width
+    centerY = height/2; //Middle of height
+
     //Colors for small rects
     yellow = color(255, 255, 5, 255);
     lightBlue = color(0, 218, 254, 255);
   }
 
   void makeGroups() {
-    
+
     //Darkish background outline
     background(34, 34, 34, 255);
 
@@ -43,12 +40,10 @@ class Group {
     strokeWeight(3);
     stroke(255);
     line(centerX, y, centerX, height-y);
-    
 
     //Make 16 white rect with blue and yellow color on far right in each rect
     for (int row = 0; row < groupHeight; row +=spacing) {
       for (int col = 0; col < 4; col++) {
-        
         rectMode(CORNER);
 
         //White rect in group A and C
@@ -58,7 +53,7 @@ class Group {
         rect(centerX+centerXOffset, yGroup+row, rectW, rectH);
 
         //White rect in group B and D
-        rect(x,yGroup+centerY+row-y/2, rectW, rectH);
+        rect(x, yGroup+centerY+row-y/2, rectW, rectH);
         rect(centerX+centerXOffset, yGroup+centerY+row-y/2, rectW, rectH);
 
         //Light blue rect in Group A and Group C
@@ -73,7 +68,7 @@ class Group {
       }
     }
   }
-  
+  //Method to draw shadows
   void makeShadows() {
     for (int row = 0; row < groupHeight; row +=spacing) {
       for (int col = 0; col < 4; col++) {
@@ -88,26 +83,26 @@ class Group {
       }
     }
   }
-  
+
   //Method to make Group names "A,B,C,D"
   void groupNames() {
-    
+
     PFont fatFont;
     fatFont = createFont("CodeNext-ExtraBold.otf", height*0.06);
     textFont(fatFont);
-    textAlign(CENTER,CENTER);
-    
+    textAlign(CENTER, CENTER);
+
     //Group A top left lightblue color
     fill(lightBlue);
-    text("GROUP A", centerX*0.5,height*0.058);
-    
+    text("GROUP A", centerX*0.5, height*0.058);
+
     //Group C top right lightblue color
     text("GROUP C", centerX*1.50, height*0.058);
-    
+
     // Group B middle left yellow color
     fill(yellow);
     text("GROUP B", centerX*0.5, height*0.545);
-    
+
     // Group D middle left yellow color
     text("GROUP D", centerX*1.50, height*0.545);
   }
@@ -115,9 +110,38 @@ class Group {
   //Method to make shadows after flags
   void drawShadows(float x, float y, float w, float h) {
     for (int i = 0; i < w; i++) { // Make more rect to create a gradient effect
-      fill(240, map(i, 0, w, 235, 50)); // Grey color with opacity
+      fill(220, map(i, 0, w, 235, 50)); // Grey color with opacity
       noStroke();
       rect(x + i, y, 1, h);
     }
+  }
+
+  //Getters to use in other classes
+  float getCenterX() {
+    return centerX;
+  }
+
+  float getCenterY() {
+    return centerY;
+  }
+
+  float getRectH() {
+    return rectH;
+  }
+
+  float getX() {
+    return x;
+  }
+
+  float getYGroup() {
+    return yGroup;
+  }
+
+  float getCenterXOffset() {
+    return centerXOffset;
+  }
+
+  float getSpacing() {
+    return spacing;
   }
 }

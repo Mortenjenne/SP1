@@ -4,9 +4,10 @@ Dette projekt visualiserer grupperne i en fodboldturnering med animationer, flag
 
 ## 📌 Funktioner
 - En velkomstskærm med festlige balloner🎈
-- Tryk **ENTER** eller **click med mus** for at se grupperne
+- Tryk **ENTER** eller **klik med mus** for at se grupperne
 - Viser **grupper A-D** med landes flag og navne
-- En fodbold bevæger sig i canvas
+- En fodbold bevæger sig i canvas når bruger trykker på f
+- Gå tilbage til startskærm vha. r
 
 ```
 ## 📂 Filstruktur
