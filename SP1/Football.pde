@@ -58,6 +58,7 @@ class Football {
 
     case 2: //Move up
       y -= ySpeed;
+      
       //Every second time the ball goes left in the middle of the screen, other wise all the way to the top
       if (counter % 2 == 0) {
         if (y < 2) {

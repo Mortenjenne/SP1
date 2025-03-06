@@ -4,6 +4,7 @@ class Balloon {
   private color c;
 
   Balloon(float x, float y, float size, float r, float g, float b) {
+    
     this.x = x;
     this.y = y;
     this.size = size;

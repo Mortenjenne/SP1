@@ -1,4 +1,5 @@
 class Group {
+  
   private float x, y, rectH, rectW, yGroup;
   private float centerX, centerY, groupHeight;
   private float spacing, centerXOffset, sizeAdjustment, shadowLength, shadowSpacing, colorBoxWidth;
@@ -13,10 +14,10 @@ class Group {
     sizeAdjustment = 20;
     centerXOffset = 10;
     spacing = 45; //Spacing between each group
-    colorBoxWidth = 10;
+    colorBoxWidth = 10; //Width of the small colored rects
     shadowLength = 16;//Lenght of shadow
-    shadowSpacing = 70;
-    groupHeight = 180;
+    shadowSpacing = 70; // Point where the flag's width ends, marking the starting position of the shadow
+    groupHeight = 180; // Height that determines where to stop drawing the white rectangles
     centerX = width/2; //Middle of width
     centerY = height/2; //Middle of height
 
@@ -42,8 +43,7 @@ class Group {
     line(centerX, y, centerX, height-y);
 
     //Make 16 white rect with blue and yellow color on far right in each rect
-    for (int row = 0; row < groupHeight; row +=spacing) {
-      for (int col = 0; col < 4; col++) {
+    for (int row = 0; row < groupHeight; row +=spacing) { 
         rectMode(CORNER);
 
         //White rect in group A and C
@@ -65,14 +65,12 @@ class Group {
         fill(yellow);
         rect(centerX-sizeAdjustment, yGroup+centerY+row-y/2, colorBoxWidth, rectH);
         rect(width-sizeAdjustment, yGroup+centerY+row-y/2, colorBoxWidth, rectH);
-      }
     }
   }
   //Method to draw shadows
   void makeShadows() {
     for (int row = 0; row < groupHeight; row +=spacing) {
-      for (int col = 0; col < 4; col++) {
-
+      
         //Flag shadow in Group A and C
         drawShadows(x+shadowSpacing, yGroup+row, shadowLength, rectH);
         drawShadows(centerX+centerXOffset+shadowSpacing, yGroup+row, shadowLength, rectH);
@@ -80,7 +78,6 @@ class Group {
         //Flag shadow in Group B and D
         drawShadows(x+shadowSpacing, yGroup+centerY+row-y/2, shadowLength, rectH);
         drawShadows(centerX+centerXOffset+shadowSpacing, yGroup+centerY+row-y/2, shadowLength, rectH);
-      }
     }
   }
 
